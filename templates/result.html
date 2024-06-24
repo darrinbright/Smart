@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prediction</title>
+    <title>Prediction Result</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-image: url('/static/background.jpg'); 
             background-size: cover;
             background-position: center;
@@ -20,12 +20,12 @@
 
         .container {
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px 20px;
-            border-radius: 10px;
-            max-width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 20px;
+            border-radius: 15px;
+            max-width: 500px;
             width: 90%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             color: #333;
             transform: scale(0.9);
             animation: scale-up 0.5s ease-in-out forwards;
@@ -38,21 +38,33 @@
         }
 
         h1 {
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+            font-size: 26px;
+            animation: fade-in 0.8s forwards;
         }
 
         p {
             font-size: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            animation: fade-in 0.8s forwards;
         }
 
-        .output {
-            font-size: 18px;
-            margin-bottom: 20px;
+        .predicted-crop {
+            font-size: 22px;
             font-weight: bold;
+            color: #4CAF50;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            display: inline-block;
+            animation: fade-in 1s forwards;
             text-transform: uppercase;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            animation: fade-in 1.2s forwards;
         }
 
         .button {
@@ -60,16 +72,17 @@
             padding: 10px 20px;
             font-size: 16px;
             color: white;
-            background-color: #28a745;
+            background-color: #4CAF50;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .button:hover {
-            background-color: #218838;
+            background-color: #45A049;
+            transform: scale(1.05);
         }
 
         .fade-in {
@@ -82,14 +95,23 @@
                 opacity: 1;
             }
         }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+            animation: fade-in 1s forwards;
+        }
     </style>
 </head>
 <body>
     <div class="container fade-in">
         <h1>Prediction</h1>
         <p>The recommended crop is:</p>
-        <p class="output">{{ predicted_crop }}</p>
-        <a href="/" class="button">Predict Again</a>
+        <p class="predicted-crop">{{ predicted_crop }}</p>
+        <div class="button-container">
+            <a href="/" class="button">Predict Again</a>
+        </div>
     </div>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SmartCrop</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             background-image: url('/static/background.jpg'); 
@@ -19,48 +20,54 @@
         }
 
         .container {
-            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 10px;
-            max-width: 300px;
+            max-width: 600px;
             width: 90%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
-            margin-bottom: 15px;
-            font-size: 24px;
-            color: #fff;
+            margin-bottom: 20px;
         }
 
         form {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .form-group {
+            display: flex;
             flex-direction: column;
-            align-items: center;
+            width: 48%;
+        }
+
+        .form-group.full-width {
+            width: 100%;
         }
 
         label {
-            display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: #ddd;
-            font-size: 14px;
         }
 
         input[type="text"] {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-            font-size: 14px;
         }
 
         input[type="submit"] {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -77,28 +84,37 @@
     <div class="container">
         <h1>SmartCrop</h1>
         <form action="/predict" method="post">
-            <label for="N">Nitrogen (N):</label>
-            <input type="text" id="N" name="N" required>
-
-            <label for="P">Phosphorus (P):</label>
-            <input type="text" id="P" name="P" required>
-
-            <label for="K">Potassium (K):</label>
-            <input type="text" id="K" name="K" required>
-
-            <label for="temperature">Temperature:</label>
-            <input type="text" id="temperature" name="temperature" required>
-
-            <label for="humidity">Humidity:</label>
-            <input type="text" id="humidity" name="humidity" required>
-
-            <label for="ph">pH:</label>
-            <input type="text" id="ph" name="ph" required>
-
-            <label for="rainfall">Rainfall:</label>
-            <input type="text" id="rainfall" name="rainfall" required>
-
-            <input type="submit" value="Predict">
+            <div class="form-group">
+                <label for="N">Nitrogen:</label>
+                <input type="text" id="N" name="N" required>
+            </div>
+            <div class="form-group">
+                <label for="P">Phosphorus:</label>
+                <input type="text" id="P" name="P" required>
+            </div>
+            <div class="form-group">
+                <label for="K">Potassium:</label>
+                <input type="text" id="K" name="K" required>
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature:</label>
+                <input type="text" id="temperature" name="temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity:</label>
+                <input type="text" id="humidity" name="humidity" required>
+            </div>
+            <div class="form-group">
+                <label for="ph">pH:</label>
+                <input type="text" id="ph" name="ph" required>
+            </div>
+            <div class="form-group full-width">
+                <label for="rainfall">Rainfall:</label>
+                <input type="text" id="rainfall" name="rainfall" required>
+            </div>
+            <div class="form-group full-width">
+                <input type="submit" value="Predict">
+            </div>
         </form>
     </div>
 </body>
